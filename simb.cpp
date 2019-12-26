@@ -33,7 +33,7 @@ Russ Russ::operator -(const Russ &str) const {
 		i++;
 	}
 
-	int j;
+	int j=0;
 	while (str.s[j] != '/0') {
 		if (res.s[i] == str.s[j]) {
 			res.s[i] = '1';
@@ -59,7 +59,7 @@ bool Russ:: operator >(const Russ &str) {
 		i++;
 	}
 	int j = 0;
-	while (res.push[i] != '/0') {
+	while (res.s[i] != '/0') {
 		j++;
 	}
 	if (i > j) {
@@ -99,3 +99,5 @@ void Russ::remove(char &k) {
 	}
 	s[i] = '/0';
 }
+
+
