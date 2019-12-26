@@ -11,6 +11,23 @@ Russ::Russ(char *ss) {
 	}
 }
 
+bool Russ:: operator !=(const Russ &str) const{
+	Russ two(*this);
+	int i = 0, j=0, count =0;
+
+	while (two.s[i] != ' ') {
+		while (str.s[j] != ' ') {
+			if (two.s[i] == str.s[i]) {
+				j++;
+				count++;
+			}
+		}
+		i++;
+	}
+	if ((count == strlen(two.s)) && (count == strlen(str.s))) return 1;
+	else return 0;
+}
+
 Russ Russ::operator +(const Russ &str) const{
 	Russ res(*this);
 	int i = 0;
@@ -52,20 +69,23 @@ Russ Russ::operator -(const Russ &str) const {
 	return res;
 }
 
-bool Russ:: operator >(const Russ &str) {
+int Russ:: operator >(const Russ &str) {
 	Russ res(*this);
 	int i = 0;
-	while (str.s[i] != '/0') {
-		i++;
-	}
-	int j = 0;
-	while (res.s[i] != '/0') {
-		j++;
-	}
-	if (i > j) {
+	while (str.s[i] == res.s[i]) i++;
+
+	if ((int)str.s[i] > (int)res.s[i]) {
+		cout << " 1 > 2 ";
 		return 0;
 	}
-	else return 1;
+	if (str.s[i] == '/0') {
+		cout << " 1 = 2 ";
+		return 0;
+	}
+	else {
+		cout << " 1 < 2 ";
+		return 2;
+	}
 }
 
 
@@ -79,7 +99,7 @@ Russ& Russ::ob(const Russ &str,const Russ &strtwo) {
 	return res;
 }
 
-void Russ::push(char &k) {
+void Russ::push(const char &k) {
 	int i = 0;
 	while (s[i] != '/0') {
 		i++;
@@ -88,7 +108,7 @@ void Russ::push(char &k) {
 	s[i + 1] = '/0';
 }
 
-void Russ::remove(char &k) {
+void Russ::remove(const char &k) {
 	int i = 0;
 	while (s[i] != k) {
 		i++;
@@ -99,5 +119,3 @@ void Russ::remove(char &k) {
 	}
 	s[i] = '/0';
 }
-
-
