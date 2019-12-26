@@ -17,13 +17,6 @@ public:
 
 	void push(char &k);
 	void remove(char &k);
-
-	friend istream &operator >>(istream &in, Russ &str) {
-		int i = 0;
-		in >> Russ.s[i];
-		return in;
-	}
-
 };
 
 
