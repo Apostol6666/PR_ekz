@@ -13,7 +13,8 @@ Russ::Russ(char *ss) {
 	}
 }
 
-bool Russ:: operator !=(const Russ &str) const{
+//оператор != - для задачи, возвращает 1 если множества равны, 3 - если полностью не равны 
+int Russ:: operator !=(const Russ &str) const{
 	Russ two(*this);
 	int i = 0, j=0, count =0;
 
@@ -27,7 +28,8 @@ bool Russ:: operator !=(const Russ &str) const{
 		i++;
 	}
 	if ((count == strlen(two.s)) && (count == strlen(str.s))) return 1;
-	else return 0;
+	if (count == 0) return 3;
+	return 0;
 }
 
 Russ Russ::operator +(const Russ &str) const{
@@ -90,7 +92,7 @@ int Russ:: operator >(const Russ &str) {
 	}
 }
 
-
+// ob - функция объединения множеств, возвращает совпадающие символы
 Russ& Russ::ob(const Russ &str,const Russ &strtwo) {
 	int i = 0;
 	Russ res;
@@ -134,6 +136,7 @@ int fileExcept_out(ofstream &fail) {
 	return 0;
 }
 
+//except - функция проверяет наличие символа в строке
 int except(char *str, const char &simb) {
 	int i = 0;
 	while (str[i] != '/0') {
@@ -144,6 +147,7 @@ int except(char *str, const char &simb) {
 	return -1;
 }
 
+// функция readSent - принимает параметрами адрес файла и номер предложения, которое нужно исользовать
 Russ &readSent(string namefile, int num_sent) {
 	char buff;
 	Russ sentence;
@@ -165,6 +169,7 @@ Russ &readSent(string namefile, int num_sent) {
 	return sentence;
 } 
 
+//функция addInFile - выводит множество в файл
 void Russ::addInFile(const string name_file) {
 	ofstream out;
 	out.open(name_file);
