@@ -122,3 +122,16 @@ void Russ::remove(const char &k) {
 	s[i] = '/0';
 }
 
+int fileExcept_Ru(ofstream &fail) {
+	if (!fail.is_open()) return -1;
+	return 0;
+}
+
+void Russ::addInFile(const string name_file) {
+	ofstream out;
+	out.open(name_file);
+
+	fileExcept_Ru(out);
+	out << s;
+}
+
