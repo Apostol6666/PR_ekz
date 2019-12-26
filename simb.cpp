@@ -1,6 +1,8 @@
 #include "pch.h"
 #include <iostream>
 #include "head.h"
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -119,3 +121,4 @@ void Russ::remove(const char &k) {
 	}
 	s[i] = '/0';
 }
+
