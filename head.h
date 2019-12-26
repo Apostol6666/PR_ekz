@@ -10,13 +10,14 @@ public:
 	Russ(){}
 	Russ(char *ss);
 
+	bool operator !=(const Russ &str) const;
 	Russ operator +(const Russ &str) const;
 	Russ operator -(const Russ &str) const;
-	bool operator >(const Russ &str);
+	int operator >(const Russ &str);
 	Russ &ob(const Russ &str, const Russ &strtwo);
 
-	void push(char &k);
-	void remove(char &k);
+	void push(const char &k);
+	void remove(const char &k);
 };
 
 
