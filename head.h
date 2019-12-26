@@ -21,5 +21,6 @@ public:
 	void remove(const char &k);
 };
 
+Russ &readSent(string namefile, int num_sent);
 
 #endif
